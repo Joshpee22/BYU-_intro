@@ -16,7 +16,7 @@ country_life_expectancies = {}
 
 # Open and read the dataset file
 with open('life-expectancy (1).csv', 'r') as file:
-    # Skip the header line
+    # Read the header line
     header = file.readline()
 
     # Initialize variables for tracking previous year and country
@@ -27,6 +27,32 @@ with open('life-expectancy (1).csv', 'r') as file:
     for line in file:
         # Split each line into parts
         parts = line.strip().split(',')
+
+        # Check if the value in the 'Year' column is numeric
+
+    # Iterate through each line in the file
+for line in file:
+    # Split each line into parts
+    parts = line.strip().split(',')
+
+    # Check if the value in the 'Year' column is numeric
+    if not parts[0].isnumeric():
+        print(f"Skipping line due to non-numeric year: {line}")
+        continue
+
+    # Extract year, country, and life expectancy values
+    year = int(parts[0])
+    country = parts[2]
+    life_expectancy = float(parts[1])
+
+    # Update lowest and highest life expectancy values
+    lowest_life_expectancy = min(lowest_life_expectancy, life_expectancy)
+    highest_life_expectancy = max(highest_life_expectancy, life_expectancy)
+
+    # Rest of your code...
+
+if not parts[0].isnumeric():
+            continue
 
         # Extract year, country, and life expectancy values
         year = int(parts[0])
