@@ -1,14 +1,18 @@
-import random                                              
+import random
+
 def initialize_game():
     words = ["mosiah", "nephi", "helaman", "alma", "ether"]
     secret_word = random.choice(words)
     return secret_word.lower()
 
-def display_word(word, guessed_letters):                       display = ""
+def display_word(word, guessed_letters):
+    display = ""
     for letter in word:
         if letter in guessed_letters:
-            display += letter.upper()                              else:
-            display += "_"                                     return display
+            display += letter.upper()
+        else:
+            display += "_"
+    return display
 
 def provide_hint(secret_word, guess):
     hint = ""
@@ -46,3 +50,4 @@ def play_game():
 
 if __name__ == "__main__":
     play_game()
+
